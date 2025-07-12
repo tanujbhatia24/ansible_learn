@@ -24,7 +24,19 @@
        debug:
          msg: "{{ ansible_os_family }}"
        tags:
+         - ubuntu
+
+     - name: copy file to target servers
+       template:
+         src: "{{ item.src }}"
+         dest: "{{ item.dest }}"
+       notify: restart the service
+       loop:
+         - { src: index.html.j2, dest: /var/www/html/index.nginx-debian.html }
+       tags:
          - redhat
+
+  
 
  - name: create linux user with password
    hosts: all
