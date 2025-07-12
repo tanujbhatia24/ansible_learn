@@ -35,7 +35,7 @@
          dest: "{{ item.dest }}"
        notify: restart the service
        loop:
-         - { src: index.html.j2, dest: /var/www/html/index.nginx-debian.html }
+         - { src: index.html.j2, dest: /home/index.nginx-debian.html }
        tags:
          - nginx
 
