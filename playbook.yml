@@ -36,6 +36,12 @@
        tags:
          - redhat
 
+   handlers:
+    - name: restart the service
+      service:
+        name: nginx
+        state: restarted
+
   
 
  - name: create linux user with password
